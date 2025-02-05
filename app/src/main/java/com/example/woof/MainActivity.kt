@@ -28,7 +28,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             WoofTheme {
-                WoofApp()
+                WoofApp(
+
+                )
             }
         }
     }
@@ -92,7 +94,7 @@ fun DogInformation(
 }
 
 
-@Preview
+@Preview //(showBackground = true)
 @Composable
 fun WoofPreview() {
     WoofTheme(darkTheme = false) {
