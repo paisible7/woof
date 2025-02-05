@@ -87,7 +87,7 @@ private val DarkColors = darkColorScheme(
 fun WoofTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = false,
+    dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -126,6 +126,8 @@ private fun setUpEdgeToEdge(view: View, darkTheme: Boolean) {
     window.statusBarColor = Color.Transparent.toArgb()
     val navigationBarColor = when {
         Build.VERSION.SDK_INT >= 29 -> Color.Transparent.toArgb()
+        Build.VERSION.SDK_INT >= 26 -> Color(0xFF, 0xFF, 0xFF, 0x63).toArgb()
+        // Min sdk version for this app is 24, this block is for SDK versions 24 and 25
         else -> Color(0x00, 0x00, 0x00, 0x50).toArgb()
     }
     window.navigationBarColor = navigationBarColor
